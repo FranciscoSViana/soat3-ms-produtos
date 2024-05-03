@@ -1,9 +1,6 @@
 package com.techchallenge.soat3msprodutos.adapter.produto.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -12,6 +9,8 @@ import java.util.UUID;
 @Setter
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProdutoResponse {
 
     private UUID uuid;

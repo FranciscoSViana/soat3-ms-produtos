@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor(force = true)
 public class ProdutoContentResponse {
     private List<ProdutoResponse> content;
 }
