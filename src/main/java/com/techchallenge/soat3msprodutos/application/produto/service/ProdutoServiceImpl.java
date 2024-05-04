@@ -32,7 +32,9 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Override
     public ProdutoResponse salvar(ProdutoRequest produtoRequest) {
 
-        ProdutoModel produto = produtoRepository.save(produtoFactory.novo(produtoRequest));
+        ProdutoModel produtoModel = produtoFactory.novo(produtoRequest);
+
+        ProdutoModel produto = produtoRepository.save(produtoModel);
 
         return produtoMapper.produtoToProdutoResponse(produto);
     }

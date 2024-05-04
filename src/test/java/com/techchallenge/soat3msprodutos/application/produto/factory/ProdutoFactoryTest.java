@@ -34,7 +34,6 @@ class ProdutoFactoryTest {
 
     @Test
     void novo_ProdutoRequestValido_DeveRetornarProdutoModel() {
-        // Given
         ProdutoRequest produtoRequest = new ProdutoRequest();
         produtoRequest.setNome("Produto Teste");
         produtoRequest.setPreco(BigDecimal.valueOf(10.0));
@@ -45,10 +44,8 @@ class ProdutoFactoryTest {
 
         when(dataProvider.obterDataHoraAtual()).thenReturn(LocalDateTime.parse("2024-05-01T12:00:00"));
 
-        // When
         ProdutoModel produtoModel = produtoFactory.novo(produtoRequest);
 
-        // Then
         assertNotNull(produtoModel);
         assertNotNull(produtoModel.getId());
         assertEquals("Produto Teste", produtoModel.getNome());
@@ -69,7 +66,6 @@ class ProdutoFactoryTest {
 
     @Test
     void atualizar_ProdutoRequestValido_DeveAtualizarProdutoModel() {
-        // Given
         ProdutoRequest produtoRequest = new ProdutoRequest();
         produtoRequest.setNome("Novo Nome");
         produtoRequest.setPreco(BigDecimal.valueOf(20.0));
@@ -87,10 +83,8 @@ class ProdutoFactoryTest {
 
         when(dataProvider.obterDataHoraAtual()).thenReturn(LocalDateTime.parse("2024-05-01T12:00:00"));
 
-        // When
         ProdutoModel produtoAtualizado = produtoFactory.atualizar(produtoRequest, produtoModel);
 
-        // Then
         assertEquals("Novo Nome", produtoAtualizado.getNome());
         assertEquals(BigDecimal.valueOf(20.0), produtoAtualizado.getPreco());
         assertEquals("Nova descrição", produtoAtualizado.getDescricao());
@@ -110,16 +104,13 @@ class ProdutoFactoryTest {
 
     @Test
     void delete_ProdutoValido_DeveMarcarProdutoComoInativo() {
-        // Given
         ProdutoModel produtoModel = new ProdutoModel();
         produtoModel.setStatus(true); // Produto ativo
 
         when(dataProvider.obterDataHoraAtual()).thenReturn(LocalDateTime.parse("2024-05-01T12:00:00"));
 
-        // When
         ProdutoModel produtoDeletado = produtoFactory.delete(produtoModel);
 
-        // Then
         assertFalse(produtoDeletado.getStatus()); // Verificar se o produto está marcado como inativo
         assertEquals("2024-05-01T12:00", produtoDeletado.getDataHoraAlteracao().toString());
     }
