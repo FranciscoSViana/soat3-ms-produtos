@@ -7,6 +7,7 @@ import com.techchallenge.soat3msprodutos.adapter.produto.model.ProdutoRequest;
 import com.techchallenge.soat3msprodutos.adapter.produto.model.ProdutoResponse;
 import com.techchallenge.soat3msprodutos.domain.model.ProdutoModel;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface ProdutoService {
@@ -22,4 +23,6 @@ public interface ProdutoService {
     ProdutoResponse delete(UUID produtoId);
 
     ProdutoModel obterProdutoPorUUID(UUID produtoId);
+
+    List<ProdutoModel> findAllById(List<UUID> produtoIds);
 }

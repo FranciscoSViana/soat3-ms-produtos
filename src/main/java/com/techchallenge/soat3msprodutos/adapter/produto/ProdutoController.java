@@ -4,12 +4,14 @@ import com.techchallenge.soat3msprodutos.adapter.produto.model.ProdutoContentRes
 import com.techchallenge.soat3msprodutos.adapter.produto.model.ProdutoRequest;
 import com.techchallenge.soat3msprodutos.adapter.produto.model.ProdutoResponse;
 import com.techchallenge.soat3msprodutos.application.produto.service.ProdutoService;
+import com.techchallenge.soat3msprodutos.domain.model.ProdutoModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -30,6 +32,12 @@ public class ProdutoController {
 
         ProdutoContentResponse response = produtoService.buscarTodas(pageNumber, pageSize);
 
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/produtos/")
+    public ResponseEntity<List<ProdutoModel>> obterProdutosPorListaId(@RequestParam List<UUID> produtosIds) {
+        List<ProdutoModel> response = produtoService.findAllById(produtosIds);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

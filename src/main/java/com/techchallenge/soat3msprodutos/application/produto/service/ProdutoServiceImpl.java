@@ -85,4 +85,9 @@ public class ProdutoServiceImpl implements ProdutoService {
         return produtoRepository.findById(produtoId)
                 .orElseThrow(() -> new NegocioException(PRODUTO_NAO_ENCONTRADO));
     }
+
+    @Override
+    public List<ProdutoModel> findAllById(List<UUID> produtoIds) {
+        return produtoRepository.findAllById(produtoIds);
+    }
 }
