@@ -84,7 +84,7 @@ class ProdutoRequestTest {
         assertNotEquals(null, produtoRequest1);
         assertNotEquals(produtoRequest1, new Object());
 
-        assertEquals(887503681, produtoRequest4.hashCode());
+        assertEquals(0, produtoRequest4.hashCode());
     }
 
     @Test

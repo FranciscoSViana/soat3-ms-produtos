@@ -9,8 +9,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.Builder;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -26,8 +24,6 @@ import java.util.UUID;
 
 @Entity
 @Builder
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "produto_model")
@@ -57,6 +53,78 @@ public class ProdutoModel {
     private LocalDateTime dataHoraAlteracao;
 
     private Boolean status;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public TipoCategoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(TipoCategoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public LocalDateTime getDataHoraCriacao() {
+        return dataHoraCriacao;
+    }
+
+    public void setDataHoraCriacao(LocalDateTime dataHoraCriacao) {
+        this.dataHoraCriacao = dataHoraCriacao;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public LocalDateTime getDataHoraAlteracao() {
+        return dataHoraAlteracao;
+    }
+
+    public void setDataHoraAlteracao(LocalDateTime dataHoraAlteracao) {
+        this.dataHoraAlteracao = dataHoraAlteracao;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
 
     @Override
     public boolean equals(Object o) {

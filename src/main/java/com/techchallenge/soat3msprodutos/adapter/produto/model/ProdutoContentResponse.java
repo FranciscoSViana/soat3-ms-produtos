@@ -1,7 +1,5 @@
 package com.techchallenge.soat3msprodutos.adapter.produto.model;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.Builder;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -9,14 +7,20 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Objects;
 
-@Getter
-@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class ProdutoContentResponse {
 
     private List<ProdutoResponse> content;
+
+    public List<ProdutoResponse> getContent() {
+        return content;
+    }
+
+    public void setContent(List<ProdutoResponse> content) {
+        this.content = content;
+    }
 
     @Override
     public boolean equals(Object o) {
