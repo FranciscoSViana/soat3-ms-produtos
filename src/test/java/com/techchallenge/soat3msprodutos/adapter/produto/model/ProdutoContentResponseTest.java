@@ -102,7 +102,7 @@ class ProdutoContentResponseTest {
         ProdutoContentResponse produtoContentResponse1 = new ProdutoContentResponse(content1);
         ProdutoContentResponse produtoContentResponse2 = new ProdutoContentResponse(content2);
 
-        assertFalse(produtoContentResponse1.equals(produtoContentResponse2));
+        assertNotEquals(produtoContentResponse1, produtoContentResponse2);
     }
 
 
