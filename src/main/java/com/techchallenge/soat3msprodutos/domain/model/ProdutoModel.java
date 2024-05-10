@@ -20,6 +20,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "produto_model")
 public class ProdutoModel {
 
     @Id
