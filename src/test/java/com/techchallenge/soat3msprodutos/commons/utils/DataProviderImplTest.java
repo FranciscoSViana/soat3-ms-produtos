@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -31,6 +31,7 @@ public class DataProviderImplTest {
 
         LocalDateTime dataHoraAtual = dataProvider.obterDataHoraAtual();
 
-        assertEquals(dataHoraAtualEsperada, dataHoraAtual);
+        assertTrue(dataHoraAtual.isAfter(dataHoraAtualEsperada.minusSeconds(1)));
+        assertTrue(dataHoraAtual.isBefore(dataHoraAtualEsperada.plusSeconds(1)));
     }
 }

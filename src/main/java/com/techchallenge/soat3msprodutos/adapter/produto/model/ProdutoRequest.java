@@ -7,10 +7,10 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class ProdutoRequest {
 
     private UUID uuid;

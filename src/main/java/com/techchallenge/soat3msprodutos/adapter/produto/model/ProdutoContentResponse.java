@@ -6,10 +6,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@EqualsAndHashCode
 public class ProdutoContentResponse {
     private List<ProdutoResponse> content;
 }

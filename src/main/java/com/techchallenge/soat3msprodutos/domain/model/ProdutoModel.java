@@ -3,10 +3,7 @@ package com.techchallenge.soat3msprodutos.domain.model;
 
 import com.techchallenge.soat3msprodutos.domain.enums.TipoCategoria;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,12 +12,14 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 
-@Data
 @Entity
 @Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "produto_model")
+@EqualsAndHashCode
 public class ProdutoModel {
 
     @Id
