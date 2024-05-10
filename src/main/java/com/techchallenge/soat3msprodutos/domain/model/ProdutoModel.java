@@ -14,12 +14,13 @@ import lombok.Setter;
 import lombok.Builder;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -29,7 +30,6 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Table(name = "produto_model")
 public class ProdutoModel {
 
@@ -57,4 +57,17 @@ public class ProdutoModel {
     private LocalDateTime dataHoraAlteracao;
 
     private Boolean status;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProdutoModel that = (ProdutoModel) o;
+        return Objects.equals(id, that.id) && categoria == that.categoria && Objects.deepEquals(imagem, that.imagem) && Objects.equals(nome, that.nome) && Objects.equals(descricao, that.descricao) && Objects.equals(preco, that.preco) && Objects.equals(dataHoraCriacao, that.dataHoraCriacao) && Objects.equals(dataHoraAlteracao, that.dataHoraAlteracao) && Objects.equals(status, that.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, categoria, Arrays.hashCode(imagem), nome, descricao, preco, dataHoraCriacao, dataHoraAlteracao, status);
+    }
 }
