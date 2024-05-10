@@ -3,7 +3,6 @@ package com.techchallenge.soat3msprodutos.adapter.produto.model;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.UUID;
 
 @Getter
