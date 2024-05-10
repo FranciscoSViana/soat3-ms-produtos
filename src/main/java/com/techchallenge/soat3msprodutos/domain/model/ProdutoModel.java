@@ -53,7 +53,15 @@ public class ProdutoModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProdutoModel that = (ProdutoModel) o;
-        return Objects.equals(id, that.id) && categoria == that.categoria && Objects.deepEquals(imagem, that.imagem) && Objects.equals(nome, that.nome) && Objects.equals(descricao, that.descricao) && Objects.equals(preco, that.preco) && Objects.equals(dataHoraCriacao, that.dataHoraCriacao) && Objects.equals(dataHoraAlteracao, that.dataHoraAlteracao) && Objects.equals(status, that.status);
+        return Objects.equals(id, that.id) &&
+                categoria == that.categoria &&
+                Arrays.equals(imagem, that.imagem) &&
+                Objects.equals(nome, that.nome) &&
+                Objects.equals(descricao, that.descricao) &&
+                Objects.equals(preco, that.preco) &&
+                Objects.equals(dataHoraCriacao, that.dataHoraCriacao) &&
+                Objects.equals(dataHoraAlteracao, that.dataHoraAlteracao) &&
+                Objects.equals(status, that.status);
     }
 
     @Override
