@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ProdutoRequestTest {
+class ProdutoRequestTest {
 
     @Test
     void testBuilder() {
@@ -81,7 +81,7 @@ public class ProdutoRequestTest {
         assertNotEquals(produtoRequest1, produtoRequest3);
         assertNotEquals(produtoRequest1.hashCode(), produtoRequest3.hashCode());
 
-        assertNotEquals(produtoRequest1, null);
+        assertNotEquals(null, produtoRequest1);
         assertNotEquals(produtoRequest1, new Object());
 
         assertEquals(887503681, produtoRequest4.hashCode());
