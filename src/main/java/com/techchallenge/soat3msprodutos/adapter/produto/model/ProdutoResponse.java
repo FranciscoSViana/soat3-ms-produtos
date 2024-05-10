@@ -19,5 +19,4 @@ public class ProdutoResponse {
     private String categoria;
     private BigDecimal preco;
     private String imagemBase64;
-
 }

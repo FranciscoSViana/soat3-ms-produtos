@@ -9,6 +9,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@EqualsAndHashCode
 public class ProdutoContentResponse {
 
     private List<ProdutoResponse> content;
