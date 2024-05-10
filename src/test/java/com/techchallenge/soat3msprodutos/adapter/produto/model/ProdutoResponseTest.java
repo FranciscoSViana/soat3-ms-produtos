@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class ProdutoResponseTest {
+class ProdutoResponseTest {
 
     @Test
     void testBuilder() {
@@ -104,7 +104,7 @@ public class ProdutoResponseTest {
         assertNotEquals(produtoResponse1, produtoResponse3);
         assertNotEquals(produtoResponse1.hashCode(), produtoResponse3.hashCode());
 
-        assertNotEquals(produtoResponse1, null);
+        assertNotEquals(null, produtoResponse1);
         assertNotEquals(produtoResponse1, new Object());
 
         assertEquals(437864549, produtoResponse4.hashCode());

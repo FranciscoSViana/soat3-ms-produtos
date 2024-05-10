@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(MockitoExtension.class)
-public class DataProviderImplTest {
+class DataProviderImplTest {
 
     @Test
     void obterDataAtutal_DeveRetornarDataAtual() {

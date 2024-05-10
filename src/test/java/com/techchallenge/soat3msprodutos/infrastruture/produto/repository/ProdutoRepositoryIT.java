@@ -18,20 +18,20 @@ import static org.junit.jupiter.api.Assertions.*;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Sql(scripts = "/data.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-public class ProdutoRepositoryIT {
+class ProdutoRepositoryIT {
 
     @Autowired
     private ProdutoRepository produtoRepository;
 
     @Test
-    public void testFindByStatusTrue() {
+    void testFindByStatusTrue() {
         List<ProdutoModel> produtos = produtoRepository.findByStatusTrue(PageRequest.of(0, 10));
         assertNotNull(produtos);
         assertFalse(produtos.isEmpty());
     }
 
     @Test
-    public void testFindById() {
+    void testFindById() {
         UUID produtoId = UUID.fromString("01234567-89ab-cdef-0123-456789abcdef");
         Optional<ProdutoModel> produtoOptional = produtoRepository.findById(produtoId);
         assertTrue(produtoOptional.isPresent());
