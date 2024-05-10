@@ -9,7 +9,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -53,19 +52,11 @@ public class ProdutoModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProdutoModel that = (ProdutoModel) o;
-        return Objects.equals(id, that.id) &&
-                categoria == that.categoria &&
-                Arrays.equals(imagem, that.imagem) &&
-                Objects.equals(nome, that.nome) &&
-                Objects.equals(descricao, that.descricao) &&
-                Objects.equals(preco, that.preco) &&
-                Objects.equals(dataHoraCriacao, that.dataHoraCriacao) &&
-                Objects.equals(dataHoraAlteracao, that.dataHoraAlteracao) &&
-                Objects.equals(status, that.status);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, categoria, Arrays.hashCode(imagem), nome, descricao, preco, dataHoraCriacao, dataHoraAlteracao, status);
+        return Objects.hashCode(id);
     }
 }
