@@ -10,6 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class ProdutoContentResponse {
-    
+
     private List<ProdutoResponse> content;
 }
