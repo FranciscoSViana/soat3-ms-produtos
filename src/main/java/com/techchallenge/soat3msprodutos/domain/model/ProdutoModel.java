@@ -19,6 +19,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "produto_model")
 public class ProdutoModel {
 
@@ -46,17 +47,4 @@ public class ProdutoModel {
     private LocalDateTime dataHoraAlteracao;
 
     private Boolean status;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProdutoModel that = (ProdutoModel) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
 }
