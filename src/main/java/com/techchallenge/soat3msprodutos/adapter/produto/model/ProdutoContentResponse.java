@@ -20,9 +20,4 @@ public class ProdutoContentResponse {
         ProdutoContentResponse that = (ProdutoContentResponse) o;
         return Objects.equals(content, that.content);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(content);
-    }
 }
