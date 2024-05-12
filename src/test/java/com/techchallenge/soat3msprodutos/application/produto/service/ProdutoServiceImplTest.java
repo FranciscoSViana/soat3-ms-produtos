@@ -196,5 +196,35 @@ class ProdutoServiceImplTest {
         assertThrows(NegocioException.class, () -> produtoService.delete(uuid));
     }
 
+    @Test
+    void buscarTodas_QuandoNumeroPaginaMenorQueZero_DeveLancarExcecao() {
+        assertThrows(IllegalArgumentException.class, () -> produtoService.buscarTodas(-1, 10));
+    }
+
+    @Test
+    void buscarTodas_QuandoTamanhoPaginaMenorQueUm_DeveLancarExcecao() {
+        assertThrows(IllegalArgumentException.class, () -> produtoService.buscarTodas(0, 0));
+    }
+
+    @Test
+    void obterProdutoPorUUID_QuandoProdutoExiste_DeveRetornarProdutoModel() {
+        UUID uuid = UUID.randomUUID();
+        ProdutoModel produtoModelEsperado = new ProdutoModel();
+        when(produtoRepository.findById(uuid)).thenReturn(Optional.of(produtoModelEsperado));
+
+        ProdutoModel produtoModelObtido = produtoService.obterProdutoPorUUID(uuid);
+
+        assertEquals(produtoModelEsperado, produtoModelObtido);
+    }
+
+    @Test
+    void obterProdutoPorUUID_QuandoProdutoNaoExiste_DeveLancarExcecao() {
+        UUID uuid = UUID.randomUUID();
+        when(produtoRepository.findById(uuid)).thenReturn(Optional.empty());
+
+        assertThrows(NegocioException.class, () -> produtoService.obterProdutoPorUUID(uuid));
+    }
+
+
 
 }
