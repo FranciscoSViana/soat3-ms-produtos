@@ -1,8 +1,6 @@
 package com.techchallenge.soat3msprodutos.adapter.produto.model;
 
-import lombok.Builder;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -11,6 +9,8 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class ProdutoResponse {
 
     private UUID uuid;
@@ -19,54 +19,6 @@ public class ProdutoResponse {
     private String categoria;
     private BigDecimal preco;
     private String imagemBase64;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
-
-    public String getImagemBase64() {
-        return imagemBase64;
-    }
-
-    public void setImagemBase64(String imagemBase64) {
-        this.imagemBase64 = imagemBase64;
-    }
 
     @Override
     public boolean equals(Object o) {

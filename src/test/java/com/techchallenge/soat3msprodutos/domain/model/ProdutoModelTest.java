@@ -54,7 +54,7 @@ class ProdutoModelTest {
                 .status(true)
                 .build();
 
-        assertNotNull(produto.hashCode());
+        produto.hashCode();
     }
 
     @Test
