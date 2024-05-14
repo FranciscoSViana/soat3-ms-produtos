@@ -1,50 +1,50 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-clientes
+  name: mysql-produtos
 spec:
   strategy:
     type: Recreate
   template:
     metadata:
-      name: mysql-clientes
+      name: mysql-produtos
       labels:
-        app: mysql-clientes
+        app: mysql-produtos
     spec:
       containers:
-        - name: mysql-clientes-container
+        - name: mysql-produtos-container
           image: mysql:8.3.0
           ports:
             - containerPort: 3308
           envFrom:
             - configMapRef:
-                name: clientes-config
+                name: produtos-config
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mysql-clientes-secret
+                  name: mysql-produtos-secret
                   key: db_root_password
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
-                  name: mysql-clientes-secret
+                  name: mysql-produtos-secret
                   key: db_user
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mysql-clientes-secret
+                  name: mysql-produtos-secret
                   key: db_password
             - name: MYSQL_TCP_PORT
               value: "3308"
   selector:
     matchLabels:
-      app: mysql-clientes
+      app: mysql-produtos
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-clientes-service
+  name: mysql-produtos-service
 spec:
   type: NodePort
   ports:
@@ -53,4 +53,4 @@ spec:
       targetPort: 3308
       nodePort: 32005
   selector:
-    app: mysql-clientes
+    app: mysql-produtos

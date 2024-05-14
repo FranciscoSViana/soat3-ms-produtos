@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: produtos-config
 data:
-  db_host: "jdbc:mysql://soat3-ms-produtos-service:3307/soat3?&createDatabaseIfNotExist=true"
+  db_host: "jdbc:mysql://mysql-produtos-service:3308/soat3?&createDatabaseIfNotExist=true"
   MYSQL_DATABASE: "soat3"
